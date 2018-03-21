@@ -7,7 +7,22 @@ color: antiquewhite;
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+#middle{
+text-align: center;
 
+}
+
+.bike-info{
+margin-top: 20px;
+
+
+}
+
+.footer-page{
+color: blue;
+background-color: blueviolet;
+
+}
 
 /* need media queries at end of CSS */
 
