@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BRB</title>
+    <!-- <link rel="stylesheet" type= "text/css" href="css/reset.css”> -->
+    <link rel="stylesheet" type ="text/css" href="assets/css/style.css">
+
+    <!-- bootstraplink -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Firebase Link  -->
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- first row -->
+    
+                <div class="col-md-2 left-col">
+                    <div class="row user-auth">
+                        <h1>User Auth</h1>  
+                            <button for="exampleInputName2">Name</button>                                   
+                            <button class="bike-info">Bicycle</button>
+                    </div>
+
+                    <div class="row" id= "user-info">      
+                        <input type="email" class="form-control" id="exampleInputName2" placeholder="User Info">            
+                    </div>
+                    <div class="row" id= "left">
+                        <input type="email" class="form-control" id="exampleInputName2" placeholder="User Info">
+                    </div>                       
+                </div>    
+                            
+               <!-- middle column first row -->
+                    <div class ="col-md-8 mid-col text-center">
+                        <div class="row">
+                        <h1>Bike Search</h1>
+                                <form>
+                                  <input type="text" id="bike-search" placeholder="zip code here"></input>
+                                  <input for="location-search" id="search" type="submit"></input>
+                                </form>   
+                                <div class="search-field">
+                                        <p>google map here</p>
+                                </div>
+                            </div>
+                        </div>
+       
+                   <!-- last column first row -->                     
+                    
+                   <div class="col-md-2 right-col">
+                        <div class="row">
+                                <h3>Recent Bikes</h3>
+                                <div class="recents">
+                            <p>Danish donut cotton candy muffin carrot cake sesame snaps. Jelly beans sweet roll halvah cupcake. Chocolate bonbon liquorice danish sesame snaps.</p>
+                                </div>  
+                        </div> 
+                    </div>
+                     
+                         <!-- <footer class="footer-page">
+                            <p>footer info goes here</p>
+                                </footer> -->
+                                                                                
+                </div>
+            </div>
+
+<script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG8dPTg52rH0rTtwIR6a-Bl1DWiELwY1M&callback=initMap"></script>   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="javascript/brb.js"></script>
+</body>
+</html>

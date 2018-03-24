@@ -1,0 +1,67 @@
+body{
+background-color: blue;
+}
+
+h1{   
+color: antiquewhite;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* #abc{
+margin-left: auto;
+margin-right:auto; */
+
+/* } */
+
+.form-control{
+width: 70px;
+
+}
+#middle{
+text-align: center;
+/* margin-left: 30%; */
+/* margin-top: 20px; */
+}
+
+.bike-info{
+margin-top: 20px;
+margin-bottom: 20px;
+
+}
+
+
+.search-field{
+height:500px;
+width:500px;
+margin-left: 20%;
+
+}
+.autharea {
+    margin-left: 20%;
+    margin-right: auto;
+    width: 33%;
+}
+
+
+#Right{
+margin-right: 60%;
+
+
+}
+.footer-page{
+color: blue;
+background-color: blueviolet;
+
+}
+
+/* need media queries at end of CSS */
+
+/* Small devices (tablets, 768px and up) */
+/* @media (min-width: @screen-sm-min) { ... } */
+
+/* Medium devices (desktops, 992px and up) */
+/* @media (min-width: @screen-md-min) { ... } */
+
+/* Large devices (large desktops, 1200px and up) */
+/* @media (min-width: @screen-lg-min) { ... } */
+clearfix
