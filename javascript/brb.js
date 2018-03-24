@@ -1,22 +1,23 @@
-console.log ("let's go")
+console.log("let's go")
 // checking the js link
 
-{/* <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script> */}
+var latitude = '';
+var longitude = '';
 
-  // Initialize Firebase
-  var config = {
+// Initialize Firebase
+var config = {
     apiKey: "AIzaSyBw74DNtaJAI7bfQW5VLX6BW7I14OmqAQ0",
     authDomain: "bike-right-back.firebaseapp.com",
     databaseURL: "https://bike-right-back.firebaseio.com",
     projectId: "bike-right-back",
     storageBucket: "bike-right-back.appspot.com",
     messagingSenderId: "124313717233"
-  };
-  firebase.initializeApp(config
+};
+firebase.initializeApp(config) 
 
 
 
-  	$(function () {
+$(function () {
     var $bikes = $('#bikes');
 
     $.ajax({
@@ -25,7 +26,7 @@ console.log ("let's go")
         dataType: 'json',
         cache: false,
         success: function (data) {
-            $(data.bikes).each(function(index, value) {
+            $(data.bikes).each(function (index, value) {
                 console.log(value);
             });
         }
