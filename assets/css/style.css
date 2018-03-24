@@ -29,11 +29,27 @@ margin-bottom: 20px;
 
 }
 
+h4{
+font-size: 30px;
+text-align: center;
+color: blueviolet;
+}
 
-.profile-image{
-height:500px;
-width:500px;
-margin-left: 20%;
+#bikes{
+font-size: 20px;
+color: black;
+}
+
+#zip-code{
+margin-bottom: 20px;
+
+}
+.search-field{
+padding: 0;
+margin:0;
+height:400px;
+width:100%;
+
 
 }
 .autharea {

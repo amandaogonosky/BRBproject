@@ -1,8 +1,6 @@
 console.log ("let's go")
 // checking the js link
 
-{/* <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script> */}
-
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBw74DNtaJAI7bfQW5VLX6BW7I14OmqAQ0",
