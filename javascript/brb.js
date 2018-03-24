@@ -12,4 +12,22 @@ console.log ("let's go")
     storageBucket: "bike-right-back.appspot.com",
     messagingSenderId: "124313717233"
   };
-  firebase.initializeApp(config);
+  firebase.initializeApp(config
+
+
+
+  	$(function () {
+    var $bikes = $('#bikes');
+
+    $.ajax({
+        type: 'GET',
+        url: 'https://bikeindex.org/api/v3/search?page=1&per_page=25&location=IP&distance=10&stolenness=stolen',
+        dataType: 'json',
+        cache: false,
+        success: function (data) {
+            $(data.bikes).each(function(index, value) {
+                console.log(value);
+            });
+        }
+    });
+});
