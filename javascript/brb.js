@@ -1,8 +1,8 @@
 console.log ("let's go")
 // checking the js link
 
-var latitude = '';
-var longitude = '';
+var latitude;
+var longitude;
 
   // Initialize Firebase
   var config = {
@@ -24,11 +24,11 @@ $.ajax({
   url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyBG8dPTg52rH0rTtwIR6a-Bl1DWiELwY1M",
   method: 'GET'
 }).then(function(response){
-    console.log();
     latitude = response.results[0].geometry.location.lat;
-    console.log(response.results[0].geometry.location.lng)
     longitude = response.results[0].geometry.location.lng;
 })
+console.log(latitude);
+console.log(longitude);
 }
 
 function initMap() {
