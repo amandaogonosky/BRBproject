@@ -1,5 +1,5 @@
 body{
-color: aqua
+color: aqua;
 }
 
 h1{   
@@ -9,15 +9,25 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 
 .search-field{
     margin: 13px;
-    padding: 13px;
-    height: 400px;
-    width: 100%;
+    padding: 8px;
+    height: 415px;
+    width: 77%;
 }
 
 .form-control{
 width: 70px;
 
 }
+.container-of-auth-stuff{
+width:100%;
+height:auto;
+
+}
+#addBike{
+    position: relative;
+    left: 26%;
+}
+
 #middle{
 text-align: center;
 background-color: aqua;
@@ -25,11 +35,17 @@ background-color: aqua;
 /* margin-top: 20px; */
 }
 
-.bike-info{
+.bike-input{
 margin-top: 20px;
 margin-bottom: 20px;
 
 }
+
+/* .add-bike{
+visibility: hidden;
+
+} */
+
 
 .autharea {
     margin-left: 20%;
