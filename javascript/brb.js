@@ -16,22 +16,6 @@ var config = {
 firebase.initializeApp(config) 
 
 
-<<<<<<< HEAD
-console.log("working");
-var address = $("#location-search").val().trim();
-$.ajax({
-  url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyBG8dPTg52rH0rTtwIR6a-Bl1DWiELwY1M",
-  method: 'GET'
-}).then(function(response){
-    latitude = response.results[0].geometry.location.lat;
-    longitude = response.results[0].geometry.location.lng;
-})
-console.log(latitude);
-console.log(longitude);
-}
-=======
->>>>>>> 6d00dae743d20869ec1c55b22f004eafd8f51ca8
-
 $(function () {
     var $bikes = $('#bikes');
 

@@ -1,5 +1,5 @@
 body{
-background-color: blue;
+color: aqua
 }
 
 h1{   
@@ -19,6 +19,7 @@ width: 70px;
 }
 #middle{
 text-align: center;
+background-color: aqua;
 /* margin-left: 30%; */
 /* margin-top: 20px; */
 }
