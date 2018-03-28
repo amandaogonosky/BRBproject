@@ -65,7 +65,7 @@ $(function () {
 
     $.ajax({
         type: 'GET',
-        url: 'https://sheltered-reaches-71424.herokuapp.com/search?page=1&per_page=25&location=IP&distance=10&stolenness=stolen',
+        url: 'https://sheltered-reaches-71424.herokuapp.com/api/v3/search?page=1&per_page=25&location=IP&distance=10&stolenness=stolen',
         dataType: 'json',
         cache: false,
         success: function (data) {
