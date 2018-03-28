@@ -21,16 +21,18 @@
     
                 <div class="col-md-2 left-col">
                     <div class="row user-auth">
-                        <h1>User Auth</h1>  
-                            <button for="exampleInputName2">Name</button>                                   
-                            <button class="bike-info">Bicycle</button>
-                    </div>
 
-                    <div class="row" id= "user-info">      
-                        <input type="email" class="form-control" id="exampleInputName2" placeholder="User Info">            
-                    </div>
-                    <div class="row" id= "left">
-                        <input type="email" class="form-control" id="exampleInputName2" placeholder="User Info">
+                        <h2>Sign-in with Google</h2>
+
+                            
+                            <div class="image-area"></div>
+                            <div class="user-name"></div>
+                            <div class="user-email"></div>
+                      
+                            <button id="sign-in-or-out-button"
+                                    style="margin-left: 25px">Sign In/Authorize</button>
+                            <button id="revoke-access-button"
+                                    style="display: none; margin-left: 25px">Revoke access</button>
                     </div>                       
                 </div>    
                             
@@ -65,7 +67,10 @@
                                                                                 
                 </div>
             </div>
-
+<script async defer src="https://apis.google.com/js/api.js" 
+        onload="this.onload=function(){};handleClientLoad()" 
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
 <script async defer
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG8dPTg52rH0rTtwIR6a-Bl1DWiELwY1M&callback=initMap"></script>   
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

@@ -16,7 +16,6 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
  /* transform: scale(.9); */
 }
 .search-field{
-  transform: rotate(180deg);
   background: turquoise;
 
     float: inherit;
