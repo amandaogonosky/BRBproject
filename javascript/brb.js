@@ -59,7 +59,6 @@ function initMap() {
 }
 
 $("#search").on("click", locationSearch);
-$("#search").on("click", locationSearch); 
 
 $(function () {
     var $bikes = $('#bikes');
