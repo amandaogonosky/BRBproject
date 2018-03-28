@@ -16,7 +16,6 @@ var config = {
 firebase.initializeApp(config) 
 
 
-<<<<<<< HEAD
 console.log("working");
 var address = $("#location-search").val().trim();
 $.ajax({
@@ -29,8 +28,6 @@ $.ajax({
 console.log(latitude);
 console.log(longitude);
 }
-=======
->>>>>>> 6d00dae743d20869ec1c55b22f004eafd8f51ca8
 
 $(function () {
     var $bikes = $('#bikes');
