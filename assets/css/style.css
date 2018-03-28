@@ -7,11 +7,12 @@ color: antiquewhite;
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-/* #abc{
-margin-left: auto;
-margin-right:auto; */
-
-/* } */
+.search-field{
+    margin: 13px;
+    padding: 13px;
+    height: 400px;
+    width: 100%;
+}
 
 .form-control{
 width: 70px;
@@ -30,13 +31,6 @@ margin-bottom: 20px;
 
 }
 
-
-.search-field{
-height:500px;
-width:500px;
-margin-left: 20%;
-
-}
 .autharea {
     margin-left: 20%;
     margin-right: auto;
@@ -65,4 +59,4 @@ background-color: blueviolet;
 
 /* Large devices (large desktops, 1200px and up) */
 /* @media (min-width: @screen-lg-min) { ... } */
-clearfix
+/* clearfix */
