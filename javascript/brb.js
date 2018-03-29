@@ -124,6 +124,7 @@ function updateSigninStatus(isSignedIn) {
   setSigninStatus();
 }
 
+  
 // Map Search Function
 
 function locationSearch(event) {
@@ -133,14 +134,25 @@ console.log("working");
 var address = $("#bike-search").val().trim();
 $.ajax({
   url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyBG8dPTg52rH0rTtwIR6a-Bl1DWiELwY1M",
-  method: 'GET'
-}).then(function(response){
+  method: 'GET',
+}).done(function(response){
   userSearch.lat = response.results[0].geometry.location.lat;
   userSearch.lng = response.results[0].geometry.location.lng;
 console.log(userSearch);
 reInitMap();
-})
+});
+$.ajax({
+  type: 'GET',
+  url: 'https://sheltered-reaches-71424.herokuapp.com/api/v3/search?page=1&per_page=25&location=IP&distance=10&stolenness=stolen',     
+  dataType: 'json',
+  cache: false,
+}).done(function (data) {
+      console.log(data);
+  });
 }
+
+
+
 
 function reInitMap() {
 var searchArea = userSearch;
@@ -172,18 +184,14 @@ function initMap() {
 
 $("#search").on("click", locationSearch);
 
-$(function () {
-    var $bikes = $('#bikes');
 
-    $.ajax({
-        type: 'GET',
-        url: 'https://7fab1a1a.ngrok.io/api/v3/search?page=1&per_page=25&location=IP&distance=10&stolenness=stolen',
-        dataType: 'json',
-        cache: false,
-        success: function (data) {
-            $(data.bikes).each(function (index, value) {
-                alert(value);
-            });
-        }
-    });
-});
+
+//bike index functions
+
+
+
+ //});
+//});
+
+
+//var bikeZip = Object.values(userSearch[0, + 1])

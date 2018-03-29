@@ -7,7 +7,7 @@ color: antiquewhite;
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 #search{ transition: all 1.3s;
-    background: green;
+    background: #4cd800;
 }
 #bike-search:hover{
   padding-inline-end: 80mm;
@@ -23,6 +23,11 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     padding: 11px;
     height: 400px;
     width: 96%;
+}
+
+.bike-add {
+  position: relative;
+  left: 15%;
 }
 
 .form-control{
