@@ -223,7 +223,11 @@ $(".addmsg").text("Bike added!");
 $("#search").on("click", locationSearch);
 $("#bike-cross").on("click", function(){
   $(".addBike").css("visibility", "visible");
-  console.log("working");
+})
+$("#addClose").on("click", function(event){
+event.preventDefault();
+$(".addBike").css("visibility", "hidden");
+
 })
 
 
