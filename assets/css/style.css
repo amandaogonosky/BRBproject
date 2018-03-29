@@ -6,28 +6,46 @@ h1{
 color: antiquewhite;
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
-.search-field{
-    margin: 13px;
-    padding: 8px;
-    height: 415px;
-    width: 77%;
+#search{ transition: all 1.3s;
+    background: #4cd800;
 }
+#bike-search:hover{
+  padding-inline-end: 80mm;
+  backface-visibility: visible;
+ fill: blue;
+ /* transform: scale(.9); */
+}
+.search-field{
+  background: turquoise;
 
+    float: inherit;
+    margin: 12px;
+    padding: 11px;
+    height: 400px;
+    width: 96%;
+}
+.recents {
+  /* margin: 100px;
+  padding: 100%; */
+  width: 100%;
+  height: 33px;
+border-radius: 60%;
+position: absolute;
+
+}
 .form-control{
 width: 70px;
 
 }
-.container-of-auth-stuff{
-width:100%;
-height:auto;
-
+@keyframes recents {
+  20%{
+    transform: rotate(8deg);
+    60%{
+      transform-origin: 
+      transform: rotate(-8deg);
+    }
+  }
 }
-#addBike{
-    position: relative;
-    left: 26%;
-}
-
 #middle{
 text-align: center;
 background-color: aqua;
@@ -76,3 +94,21 @@ background-color: blueviolet;
 /* Large devices (large desktops, 1200px and up) */
 /* @media (min-width: @screen-lg-min) { ... } */
 /* clearfix */
+/*Stylers are color and visibility properties that you can apply to map elements. They define the displayed color through a combination of hue, color, and lightness/gamma values.
+/*To style your map, combine the selectors and stylers into a style array, and pass it to the default map's MapOptions object, or to the StyledMapType constructor. The array takes the following form:
+/* https://developers.google.com/maps/documentation/javascript/styling
+/*var stylesArray = [
+  {
+    featureType: '',
+    elementType: '',
+    stylers: [
+      {color: ''},
+      {visibility: ''},
+      // Add any stylers you need.
+    ]
+  },
+  {
+    featureType: '',
+    // Add the stylers you need.
+  }
+]
