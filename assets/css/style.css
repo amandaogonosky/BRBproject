@@ -24,10 +24,27 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     height: 400px;
     width: 96%;
 }
+.recents {
+  /* margin: 100px;
+  padding: 100%; */
+  width: 100%;
+  height: 33px;
+border-radius: 60%;
+position: absolute;
 
+}
 .form-control{
 width: 70px;
 
+}
+@keyframes recents {
+  20%{
+    transform: rotate(8deg);
+    60%{
+      transform-origin: 
+      transform: rotate(-8deg);
+    }
+  }
 }
 #middle{
 text-align: center;
