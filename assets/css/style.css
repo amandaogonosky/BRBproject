@@ -2,6 +2,11 @@ body{
 background-color: blue;
 }
 
+#bike-cross{
+margin-top: 20px;
+
+}
+
 h1{   
 color: antiquewhite;
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -33,10 +38,10 @@ border-radius: 60%;
 position: absolute;
 
 }
-.form-control{
+/* .form-control{
 width: 70px;
 
-}
+} */
 @keyframes recents {
   20%{
     transform: rotate(8deg);
@@ -64,16 +69,19 @@ margin-bottom: 20px;
     width: 33%;
 }
 
-
 #Right{
 margin-right: 60%;
 
 
 }
-.footer-page{
-color: blue;
-background-color: blueviolet;
-
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
 }
 
 /* need media queries at end of CSS */
