@@ -1,15 +1,15 @@
 // Initialize Firebase
-var config = {
-    apiKey: "AIzaSyBw74DNtaJAI7bfQW5VLX6BW7I14OmqAQ0",
-    authDomain: "bike-right-back.firebaseapp.com",
-    databaseURL: "https://bike-right-back.firebaseio.com",
-    projectId: "bike-right-back",
-    storageBucket: "bike-right-back.appspot.com",
-    messagingSenderId: "124313717233"
-  };
-  firebase.initializeApp(config);
+ var config = {
+  apiKey: "AIzaSyD5zoy2pxMHA6PO97Yr_PEn8h2q_0VJ8_M",
+  authDomain: "bikerightback-5cac5.firebaseapp.com",
+  databaseURL: "https://bikerightback-5cac5.firebaseio.com",
+  projectId: "bikerightback-5cac5",
+  storageBucket: "",
+  messagingSenderId: "1000343091978"
+};
+firebase.initializeApp(config);
 
-
+var database = firebase.database();
 var userSearch = {
   lat: '',
   lng: ''
@@ -191,6 +191,34 @@ function initMap() {
     map: map
   });
 }
+
+$("#addBike").on("click", function(event){
+  event.preventDefault();
+
+  var serial = $("#serial").val().trim();
+  var manufacturer = $("#manufacturer").val().trim();
+  var color = $("#color").val().trim();
+  var email = $("#email").val().trim();
+  var frame = $("#frame").val().trim();
+  var imgurl = $("#image").val().trim();
+
+database.ref().push({
+  serial : serial,
+  manufacturer: manufacturer,
+  color: color,
+  email: email,
+  frame: frame,
+  imgurl: imgurl
+}) 
+
+$("#serial").val(" ");
+$("#manufacturer").val(" ");
+$("#color").val(" ");
+$("#email").val(" ");
+$("#frame").val(" ");
+$("#image").val(" ");
+$(".addmsg").text("Bike added!");
+})
 
 $("#search").on("click", locationSearch);
 $("#bike-cross").on("click", function(){
