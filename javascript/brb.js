@@ -134,7 +134,7 @@ event.preventDefault();
 
 
 console.log("working");
-var address = $("#search").val().trim();
+var address = $("#bike-search").val().trim();
 $.ajax({
   url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyBG8dPTg52rH0rTtwIR6a-Bl1DWiELwY1M",
   method: 'GET',
