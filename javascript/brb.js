@@ -15,7 +15,7 @@ var userSearch = {
   lng: ''
 }
 var bQuery1 = '';
-varbQuery2 = '';
+var bQuery2 = '';
 var GoogleAuth;
 var userEmail;
 var userImage;
@@ -134,7 +134,11 @@ event.preventDefault();
 
 
 console.log("working");
+<<<<<<< HEAD
 var address = $("#search").val().trim();
+=======
+var address = $("#bike-search").val().trim();
+>>>>>>> 10dd336fa73dbf879388af32c16606c7f472d716
 $.ajax({
   url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyBG8dPTg52rH0rTtwIR6a-Bl1DWiELwY1M",
   method: 'GET',
@@ -145,14 +149,13 @@ $.ajax({
 reInitMap();
 console.log(userSearch);
   bQuery1 = userSearch.lat;
+  bQuery2 = userSearch.lng;
   console.log(bQuery1);
 });
 
-console.log(userSearch);
-
 $.ajax({
   type: 'GET',
-  url: 'https://sheltered-reaches-71424.herokuapp.com/api/v3/search?page=1&per_page=25&location=IP&distance=10&stolenness=stolen',     
+  url: 'https://sheltered-reaches-71424.herokuapp.com/api/v3/search?page=1&per_page=25&location=' + bQuery1 + ',-' + bQuery2 + '&distance=10&stolenness=proximity',     
   dataType: 'json',
   cache: false,
 }).done(function (data) {
@@ -194,7 +197,10 @@ function initMap() {
 }
 
 $("#search").on("click", locationSearch);
-
+$("#bike-cross").on("click", function(){
+  $(".addBike").css("visibility", "visible");
+  console.log("working");
+})
 
 
 //bike index functions
