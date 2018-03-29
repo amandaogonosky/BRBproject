@@ -20,6 +20,9 @@ var userSearch = {
 var bQuery1 = '';
 var bQuery2 = '';
 var stolenBikes;
+var bikePlace = [];
+var bikeTime = [];
+var stolenCoords = [];
 
 
 // Google Auth variables
@@ -123,11 +126,23 @@ function updateSigninStatus(isSignedIn) {
 }
 //END GOOGLE OAUTH
 
+//Function that initializes map on document load
+function initMap() {
+  var uluru = {lat:42.0166702, lng: 23.1000004};
+  var map = new google.maps.Map(document.querySelector(".search-field"), {
+    zoom: 2,
+    center: uluru
+  });
+  var marker = new google.maps.Marker({
+    position: uluru,
+    map: map
+  });
+}
+
   
 // Map Search Function
 function locationSearch(event) {
 event.preventDefault();
-
 
 console.log("working");
 var address = $("#bike-search").val().trim();
@@ -137,53 +152,68 @@ $.ajax({
 }).done(function(response){
   userSearch.lat = response.results[0].geometry.location.lat;
   userSearch.lng = response.results[0].geometry.location.lng;
-// console.log(userSearch);
 reInitMap();
-console.log(userSearch);
-  bQuery1 = userSearch.lat;
-  bQuery2 = userSearch.lng;
-  console.log(bQuery1);
 });
 
 $.ajax({
   type: 'GET',
-  url: 'https://sheltered-reaches-71424.herokuapp.com/api/v3/search?page=1&per_page=25&location=' + bQuery1 + ',-' + bQuery2 + '&distance=10&stolenness=proximity',     
+  url: 'https://sheltered-reaches-71424.herokuapp.com/api/v3/search?page=1&per_page=10&location=' + bQuery1 + ',-' + bQuery2 + '&distance=10&stolenness=proximity',     
   dataType: 'json',
   cache: false,
 }).done(function (data) {
-  stolenBikes = data;
-  console.log(stolenBikes);
+  for (i=0; i < data.bikes.length; i++) {
+    var place = data.bikes[i].stolen_location;
+    var time = data.bikes[i].date_stolen;
+    bikePlace.push(place);
+    bikeTime.push(time);
+  }
+  stolenMarkers();
   })
+$("#bike-search").val(" ");
 }
 
+//Function that returns latitude and longitude for items in bikePlace array
+
+function stolenMarkers() {
+  for (i=0; i < bikePlace.length; i++) {
+    if (!bikePlace[i]) {
+
+    }
+    else {
+    var location = bikePlace[i];
+    console.log(location);
+    $.ajax({
+      url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=AIzaSyBG8dPTg52rH0rTtwIR6a-Bl1DWiELwY1M",
+      method: 'GET',
+    }).done(function(response){
+      var stolenLatLng = {
+        lat: response.results[0].geometry.location.lat,
+        lng: response.results[0].geometry.location.lng
+      }
+      stolenCoords.push(stolenLatLng);
+    });
+  }
+  }
+  console.log(stolenCoords);
+}
+
+// Function that moves the map's centered point
 function reInitMap() {
 var searchArea = userSearch;
 var map = new google.maps.Map(document.querySelector(".search-field"), {
   zoom: 18,
   center: searchArea
 });
+for (i =0; i < stolenCoords.length; i++) {
 var marker = new google.maps.Marker({
-  position: searchArea,
+  position: stolenCoords[i],
   map: map
-});}
 
-function initMap() {
-  var uluru = {lat:42.0166702, lng: 23.1000004};
-  var map = new google.maps.Map(document.querySelector(".search-field"), {
-    zoom: 2,
-    center: uluru
-    // mapTypeControlOptions: {
-    //   mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
-    //           'styled_map']
-    // }
-    
-  });
-  var marker = new google.maps.Marker({
-    position: uluru,
-    map: map
-  });
+});
+}
 }
 
+// Add Bike to Firebase Function
 $("#addBike").on("click", function(event){
   event.preventDefault();
 
@@ -200,7 +230,8 @@ database.ref().push({
   color: color,
   email: email,
   frame: frame,
-  imgurl: imgurl
+  imgurl: imgurl,
+  stolenness: non
 }) 
 
 $("#serial").val(" ");
@@ -222,13 +253,3 @@ $(".addBike").css("visibility", "hidden");
 
 })
 
-
-//bike index functions
-
-
-
- //});
-//});
-
-
-//var bikeZip = Object.values(userSearch[0, + 1])
