@@ -14,6 +14,8 @@ var userSearch = {
   lat: '',
   lng: ''
 }
+var bQuery1 = '';
+varbQuery2 = '';
 var GoogleAuth;
 var userEmail;
 var userImage;
@@ -130,6 +132,7 @@ function updateSigninStatus(isSignedIn) {
 function locationSearch(event) {
 event.preventDefault();
 
+
 console.log("working");
 <<<<<<< HEAD
 var address = $("#search").val().trim();
@@ -142,9 +145,15 @@ $.ajax({
 }).done(function(response){
   userSearch.lat = response.results[0].geometry.location.lat;
   userSearch.lng = response.results[0].geometry.location.lng;
-console.log(userSearch);
+// console.log(userSearch);
 reInitMap();
+console.log(userSearch);
+  bQuery1 = userSearch.lat;
+  console.log(bQuery1);
 });
+
+console.log(userSearch);
+
 $.ajax({
   type: 'GET',
   url: 'https://sheltered-reaches-71424.herokuapp.com/api/v3/search?page=1&per_page=25&location=IP&distance=10&stolenness=stolen',     
@@ -152,7 +161,9 @@ $.ajax({
   cache: false,
 }).done(function (data) {
       console.log(data);
-  });
+      console.log(bQuery1);
+
+  })
 }
 
 
