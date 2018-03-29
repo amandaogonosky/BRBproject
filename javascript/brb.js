@@ -9,13 +9,20 @@
 };
 firebase.initializeApp(config);
 
+// Home Made Global Variables
 var database = firebase.database();
 var userSearch = {
   lat: '',
   lng: ''
 }
+
+// stolen bike search variables
 var bQuery1 = '';
 var bQuery2 = '';
+var stolenBikes;
+
+
+// Google Auth variables
 var GoogleAuth;
 var userEmail;
 var userImage;
@@ -24,7 +31,7 @@ var userName;
 var userImageObjects;
 var SCOPE = 'https://www.googleapis.com/auth/drive.metadata.readonly';
 
-
+// GOOGLE OAUTH
 
 function handleClientLoad() {
   // Load the API's client and auth2 modules.
@@ -85,10 +92,6 @@ function setSigninStatus(isSignedIn) {
   var user = GoogleAuth.currentUser.get();
   var isAuthorized = user.hasGrantedScopes(SCOPE);
   if (isAuthorized) {
-
-
-
-
 //Gets user info and stores in vars, also adds the user profile image/info to the page
     var userProf = user.getBasicProfile();
      userEmail = userProf.getEmail();
@@ -102,13 +105,6 @@ function setSigninStatus(isSignedIn) {
      $(".user-name").html('Username: ' + userName);
      $(".user-email").html('User Email: ' + userEmail);
      $(".image-area").html(userImageObject);
-    console.log(userImage);
-    console.log(userEmail);
-    console.log(userId);
-    console.log(userName);
-
-
-
 
     $('#sign-in-or-out-button').html('Sign out');
     $('#revoke-access-button').css('display', 'inline-block');
@@ -125,10 +121,10 @@ function setSigninStatus(isSignedIn) {
 function updateSigninStatus(isSignedIn) {
   setSigninStatus();
 }
+//END GOOGLE OAUTH
 
   
 // Map Search Function
-
 function locationSearch(event) {
 event.preventDefault();
 
@@ -155,14 +151,10 @@ $.ajax({
   dataType: 'json',
   cache: false,
 }).done(function (data) {
-      console.log(data);
-      console.log(bQuery1);
-
+  stolenBikes = data;
+  console.log(stolenBikes);
   })
 }
-
-
-
 
 function reInitMap() {
 var searchArea = userSearch;
