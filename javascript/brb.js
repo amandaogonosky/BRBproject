@@ -77,9 +77,7 @@ function initClient() {
     $('#sign-in-or-out-button').click(function () {
       handleAuthClick();
     });
-    $('#revoke-access-button').click(function () {
-      revokeAccess();
-    });
+
   });
 }
 
@@ -99,9 +97,7 @@ function handleAuthClick() {
   }
 }
 
-function revokeAccess() {
-  GoogleAuth.disconnect();
-}
+
 
 function setSigninStatus(isSignedIn) {
   var user = GoogleAuth.currentUser.get();
