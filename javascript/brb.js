@@ -249,14 +249,13 @@ $("#addBike").on("click", function (event) {
 
 var usersRef = database.ref().child("users");
 
-  usersRef.child(userId2).set({ 
+  usersRef.child(userId2).push({ 
     serial: serial,
     manufacturer: manufacturer,
     color: color,
     email: email,
     frame: frame,
     imgurl: imgurl,
-    stolenness: "non"
   });
 }
 
