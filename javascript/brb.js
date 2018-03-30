@@ -247,7 +247,7 @@ $("#addBike").on("click", function (event) {
 
 var usersRef = database.ref().child("users");
 
-  usersRef.push({
+  usersRef.child(userEmail).set({
     [userEmail]:{
     serial: serial,
     manufacturer: manufacturer,
