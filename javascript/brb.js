@@ -228,6 +228,7 @@ function reInitMap() {
 $("#addBike").on("click", function (event) {
   event.preventDefault();
 
+  var user = userEmail;
   var serial = $("#serial").val().trim();
   var manufacturer = $("#manufacturer").val().trim();
   var color = $("#color").val().trim();
@@ -238,7 +239,7 @@ $("#addBike").on("click", function (event) {
 var usersRef = database.ref().child("users");
 
   usersRef.set({
-    userEmail:{
+    user:{
     serial: serial,
     manufacturer: manufacturer,
     color: color,
