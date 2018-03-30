@@ -235,7 +235,10 @@ $("#addBike").on("click", function (event) {
   var frame = $("#frame").val().trim();
   var imgurl = $("#image").val().trim();
 
-  database.ref().push({
+var usersRef = database.ref().child("users");
+
+  usersRef.set({
+    userEmail:{
     serial: serial,
     manufacturer: manufacturer,
     color: color,
@@ -243,7 +246,8 @@ $("#addBike").on("click", function (event) {
     frame: frame,
     imgurl: imgurl,
     stolenness: "non"
-  })
+  }
+  });
 
   $("#serial").val(" ");
   $("#manufacturer").val(" ");
