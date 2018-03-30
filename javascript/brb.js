@@ -289,7 +289,7 @@ $("#addClose").on("click", function (event) {
 
 
 
-$("#addBike").on("click", function(event){
+$("#addStolenBike").on("click", function(event){
   event.preventDefault();
 
   var comments = $("#comments").val().trim();
