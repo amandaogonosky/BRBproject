@@ -235,7 +235,10 @@ $("#addBike").on("click", function (event) {
   var frame = $("#frame").val().trim();
   var imgurl = $("#image").val().trim();
 
-  database.ref().push({
+var usersRef = database.ref().child("users");
+
+  usersRef.set({
+    userEmail:{
     serial: serial,
     manufacturer: manufacturer,
     color: color,
@@ -243,7 +246,8 @@ $("#addBike").on("click", function (event) {
     frame: frame,
     imgurl: imgurl,
     stolenness: "non"
-  })
+  }
+  });
 
   $("#serial").val(" ");
   $("#manufacturer").val(" ");
@@ -264,3 +268,50 @@ $("#addClose").on("click", function (event) {
 
 })
 
+
+
+
+
+
+
+$("#addBike").on("click", function(event){
+  event.preventDefault();
+
+  var comments = $("#comments").val().trim();
+  var locationStolen = $("#location").val().trim();
+  var timeStolen = $("#time").val().trim();
+  var dateStolen = $("#date").val().trim();
+
+
+// database.ref().push({
+//   serial : serial,
+//   manufacturer: manufacturer,
+//   color: color,
+//   email: email,
+//   frame: frame,
+// }) 
+
+$("#comments").val(" ");
+$("#location").val(" ");
+$("#time").val(" ");
+$("#date").val(" ");
+})
+
+
+$(".stolen-bike-add").on("click", function(){
+  $(".stolenBike").css("visibility", "visible");
+})
+
+
+$("#addStolenClose").on("click", function(event){
+event.preventDefault();
+$(".stolenBike").css("visibility", "hidden");
+
+})
+
+$("#addStolenBike").on("click", function(event){
+  event.preventDefault();
+  $(".stolenBike").css("visibility", "hidden");
+  
+  })
+  
