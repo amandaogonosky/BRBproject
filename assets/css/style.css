@@ -3,7 +3,7 @@ color: aqua;
 }
 
 #bike-cross{
-margin-top: 20px;
+/* margin-top: 20px; */
 
 }
 
@@ -56,6 +56,18 @@ margin-bottom: 20px;
   box-shadow: 5px 8px 10px darkgrey;
   padding: 0 15px 24px 0;
   visibility: hidden;
+}
+
+.stolenBike {
+
+  position: fixed;
+  top: 10%;
+  left: 30%;
+  background-color: white;
+  box-shadow: 5px 8px 10px darkgrey;
+  padding: 0 15px 24px 0;
+  visibility: hidden;
+
 }
 
 .add {
