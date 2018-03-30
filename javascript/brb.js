@@ -36,6 +36,10 @@ var SCOPE = 'https://www.googleapis.com/auth/drive.metadata.readonly';
 
 // GOOGLE OAUTH
 
+
+$('.bike-add').css('display', 'none');
+$('.stolen-bike-add').css('display', 'none');
+
 function handleClientLoad() {
   // Load the API's client and auth2 modules.
   // Call the initClient function after the modules load.
@@ -80,6 +84,9 @@ function handleAuthClick() {
     $('.image-area').css('display', 'none');
     $('.user-name').css('display', 'none');
     $('.user-email').css('display', 'none');
+    $('.bike-add').css('display', 'none');
+$('.stolen-bike-add').css('display', 'none');
+
     GoogleAuth.signOut();
   } else {
     // User is not signed in. Start Google auth flow.
@@ -108,6 +115,8 @@ function setSigninStatus(isSignedIn) {
     $(".user-name").html('Username: ' + userName);
     $(".user-email").html('User Email: ' + userEmail);
     $(".image-area").html(userImageObject);
+    $('.bike-add').css('display', 'inline');
+    $('.stolen-bike-add').css('display', 'inline');
 
     $('#sign-in-or-out-button').html('Sign out');
     $('#revoke-access-button').css('display', 'inline-block');
