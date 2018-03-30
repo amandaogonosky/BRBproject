@@ -40,7 +40,6 @@ var userId;
 var userName;
 var userImageObjects;
 var SCOPE = 'https://www.googleapis.com/auth/drive.metadata.readonly';
-var userId2 = userId.val().trim();
 
 // GOOGLE OAUTH
 
@@ -253,8 +252,8 @@ $("#addBike").on("click", function (event) {
 
 var usersRef = database.ref().child("users");
 
-  usersRef.child(userId2).set({
-    [userId2]:{
+  usersRef.child(userEmail).set({
+    [userEmail]:{
     serial: serial,
     manufacturer: manufacturer,
     color: color,
