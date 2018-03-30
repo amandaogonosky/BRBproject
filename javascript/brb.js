@@ -38,7 +38,6 @@ var userName;
 var userImageObjects;
 var SCOPE = 'https://www.googleapis.com/auth/drive.metadata.readonly';
 
-
 // GOOGLE OAUTH
 
 
@@ -75,9 +74,7 @@ function initClient() {
     $('#sign-in-or-out-button').click(function () {
       handleAuthClick();
     });
-    $('#revoke-access-button').click(function () {
-      revokeAccess();
-    });
+
   });
 }
 
@@ -97,9 +94,7 @@ function handleAuthClick() {
   }
 }
 
-function revokeAccess() {
-  GoogleAuth.disconnect();
-}
+
 
 function setSigninStatus(isSignedIn) {
   var user = GoogleAuth.currentUser.get();
@@ -292,7 +287,7 @@ $("#addClose").on("click", function (event) {
 
 
 
-$("#addBike").on("click", function(event){
+$("#addStolenBike").on("click", function(event){
   event.preventDefault();
 
   var comments = $("#comments").val().trim();
