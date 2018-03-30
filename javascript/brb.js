@@ -208,7 +208,6 @@ for (i =0; i < stolenCoords.length; i++) {
 var marker = new google.maps.Marker({
   position: stolenCoords[i],
   map: map
-
 });
 }
 }
@@ -231,7 +230,7 @@ database.ref().push({
   email: email,
   frame: frame,
   imgurl: imgurl,
-  stolenness: non
+  stolenness: "non"
 }) 
 
 $("#serial").val(" ");
