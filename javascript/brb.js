@@ -1,3 +1,10 @@
+
+//hides buttons to add stuff until you auth in
+$('.bike-add').css('display', 'none');
+$('.stolen-bike-add').css('display', 'none');
+
+
+
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyD5zoy2pxMHA6PO97Yr_PEn8h2q_0VJ8_M",
@@ -37,8 +44,6 @@ var SCOPE = 'https://www.googleapis.com/auth/drive.metadata.readonly';
 // GOOGLE OAUTH
 
 
-$('.bike-add').css('display', 'none');
-$('.stolen-bike-add').css('display', 'none');
 
 function handleClientLoad() {
   // Load the API's client and auth2 modules.
@@ -84,8 +89,8 @@ function handleAuthClick() {
     $('.image-area').css('display', 'none');
     $('.user-name').css('display', 'none');
     $('.user-email').css('display', 'none');
-    $('.bike-add').css('display', 'none');
-$('.stolen-bike-add').css('display', 'none');
+//     $('.bike-add').css('display', 'none');
+// $('.stolen-bike-add').css('display', 'none');
 
     GoogleAuth.signOut();
   } else {
