@@ -239,7 +239,7 @@ $("#addBike").on("click", function (event) {
     $(".addmsg").text("You must sign in with Google");
   }
   else {
-  var userId2 = userId.val().trim();
+  var userId2 = userId.trim();
   var serial = $("#serial").val().trim();
   var manufacturer = $("#manufacturer").val().trim();
   var color = $("#color").val().trim();
