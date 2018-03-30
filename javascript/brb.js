@@ -40,7 +40,7 @@ var userId;
 var userName;
 var userImageObjects;
 var SCOPE = 'https://www.googleapis.com/auth/drive.metadata.readonly';
-var userId2 = userID.val().trim();
+var userId2 = userId.val().trim();
 
 // GOOGLE OAUTH
 
