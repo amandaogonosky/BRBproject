@@ -24,9 +24,6 @@ var userSearch = {
 }
 
 // stolen bike search variables
-var bQuery1 = '';
-var bQuery2 = '';
-var stolenBikes;
 var bikePlace = [];
 var bikeTime = [];
 var stolenCoords = [];
@@ -166,7 +163,7 @@ function locationSearch(event) {
 
     $.ajax({
       type: 'GET',
-      url: 'https://sheltered-reaches-71424.herokuapp.com/api/v3/search?page=1&per_page=10&location=' + userSearch.lat + ',' + userSearch.lng + '&distance=10&stolenness=proximity',
+      url: 'https://sheltered-reaches-71424.herokuapp.com/api/v3/search?page=1&per_page=25&location=' + userSearch.lat + ',' + userSearch.lng + '&distance=10&stolenness=proximity',
       dataType: 'json',
       cache: false,
     }).done(function (data) {
@@ -238,7 +235,11 @@ function reInitMap() {
 $("#addBike").on("click", function (event) {
   event.preventDefault();
 
-
+  if (!userId) {
+    $(".addmsg").text("You must sign in with Google");
+  }
+  else {
+  var userId2 = userId.val().trim();
   var serial = $("#serial").val().trim();
   var manufacturer = $("#manufacturer").val().trim();
   var color = $("#color").val().trim();
@@ -248,8 +249,8 @@ $("#addBike").on("click", function (event) {
 
 var usersRef = database.ref().child("users");
 
-  usersRef.child(userEmail).set({
-    [userEmail]:{
+  usersRef.child(userId2).set({
+    [userId2]:{
     serial: serial,
     manufacturer: manufacturer,
     color: color,
@@ -259,6 +260,7 @@ var usersRef = database.ref().child("users");
     stolenness: "non"
   }
   });
+}
 
   $("#serial").val(" ");
   $("#manufacturer").val(" ");
