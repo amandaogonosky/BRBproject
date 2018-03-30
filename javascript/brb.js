@@ -1,5 +1,5 @@
 // Initialize Firebase
- var config = {
+var config = {
   apiKey: "AIzaSyD5zoy2pxMHA6PO97Yr_PEn8h2q_0VJ8_M",
   authDomain: "bikerightback-5cac5.firebaseapp.com",
   databaseURL: "https://bikerightback-5cac5.firebaseio.com",
@@ -51,10 +51,10 @@ function initClient() {
   // Get API key and client ID from API Console.
   // 'scope' field specifies space-delimited list of access scopes.
   gapi.client.init({
-      'apiKey': 'AIzaSyByFOJUGmmTwEAXH7i90m6Kir2e6ZfssGY',
-      'discoveryDocs': [discoveryUrl],
-      'clientId': '124313717233-ml667i7s5bkdeoknfnqd3lvbim0s703d.apps.googleusercontent.com',
-      'scope': SCOPE
+    'apiKey': 'AIzaSyByFOJUGmmTwEAXH7i90m6Kir2e6ZfssGY',
+    'discoveryDocs': [discoveryUrl],
+    'clientId': '124313717233-ml667i7s5bkdeoknfnqd3lvbim0s703d.apps.googleusercontent.com',
+    'scope': SCOPE
   }).then(function () {
     GoogleAuth = gapi.auth2.getAuthInstance();
 
@@ -65,12 +65,12 @@ function initClient() {
     var user = GoogleAuth.currentUser.get();
     setSigninStatus();
 
-    $('#sign-in-or-out-button').click(function() {
+    $('#sign-in-or-out-button').click(function () {
       handleAuthClick();
-    }); 
-    $('#revoke-access-button').click(function() {
+    });
+    $('#revoke-access-button').click(function () {
       revokeAccess();
-    }); 
+    });
   });
 }
 
@@ -79,7 +79,7 @@ function handleAuthClick() {
     // User is authorized and has clicked 'Sign out' button.
     $('.image-area').css('display', 'none');
     $('.user-name').css('display', 'none');
-     $('.user-email').css('display', 'none');
+    $('.user-email').css('display', 'none');
     GoogleAuth.signOut();
   } else {
     // User is not signed in. Start Google auth flow.
@@ -95,19 +95,19 @@ function setSigninStatus(isSignedIn) {
   var user = GoogleAuth.currentUser.get();
   var isAuthorized = user.hasGrantedScopes(SCOPE);
   if (isAuthorized) {
-//Gets user info and stores in vars, also adds the user profile image/info to the page
+    //Gets user info and stores in vars, also adds the user profile image/info to the page
     var userProf = user.getBasicProfile();
-     userEmail = userProf.getEmail();
-     userImage = userProf.getImageUrl();
-     userId = userProf.getId();
-     userName = userProf.getName();
-     userImageObject = $("<img>").attr("src", userImage);
-     $('.image-area').css('display', 'block');
-     $('.user-name').css('display', 'block');
-     $('.user-email').css('display', 'block');
-     $(".user-name").html('Username: ' + userName);
-     $(".user-email").html('User Email: ' + userEmail);
-     $(".image-area").html(userImageObject);
+    userEmail = userProf.getEmail();
+    userImage = userProf.getImageUrl();
+    userId = userProf.getId();
+    userName = userProf.getName();
+    userImageObject = $("<img>").attr("src", userImage);
+    $('.image-area').css('display', 'block');
+    $('.user-name').css('display', 'block');
+    $('.user-email').css('display', 'block');
+    $(".user-name").html('Username: ' + userName);
+    $(".user-email").html('User Email: ' + userEmail);
+    $(".image-area").html(userImageObject);
 
     $('#sign-in-or-out-button').html('Sign out');
     $('#revoke-access-button').css('display', 'inline-block');
@@ -128,7 +128,7 @@ function updateSigninStatus(isSignedIn) {
 
 //Function that initializes map on document load
 function initMap() {
-  var uluru = {lat:42.0166702, lng: 23.1000004};
+  var uluru = { lat: 42.0166702, lng: 23.1000004 };
   var map = new google.maps.Map(document.querySelector(".search-field"), {
     zoom: 2,
     center: uluru
@@ -139,81 +139,93 @@ function initMap() {
   });
 }
 
-  
+
 // Map Search Function
 function locationSearch(event) {
-event.preventDefault();
+  event.preventDefault();
 
-console.log("working");
-var address = $("#bike-search").val().trim();
-$.ajax({
-  url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyBG8dPTg52rH0rTtwIR6a-Bl1DWiELwY1M",
-  method: 'GET',
-}).done(function(response){
-  userSearch.lat = response.results[0].geometry.location.lat;
-  userSearch.lng = response.results[0].geometry.location.lng;
-reInitMap();
-});
+  console.log("working");
+  var address = $("#bike-search").val().trim();
+  $.ajax({
+    url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyBG8dPTg52rH0rTtwIR6a-Bl1DWiELwY1M",
+    method: 'GET',
+  }).done(function (response) {
+    userSearch.lat = response.results[0].geometry.location.lat;
+    userSearch.lng = response.results[0].geometry.location.lng;
+    reInitMap();
 
-$.ajax({
-  type: 'GET',
-  url: 'https://sheltered-reaches-71424.herokuapp.com/api/v3/search?page=1&per_page=10&location=' + bQuery1 + ',-' + bQuery2 + '&distance=10&stolenness=proximity',     
-  dataType: 'json',
-  cache: false,
-}).done(function (data) {
-  for (i=0; i < data.bikes.length; i++) {
-    var place = data.bikes[i].stolen_location;
-    var time = data.bikes[i].date_stolen;
-    bikePlace.push(place);
-    bikeTime.push(time);
-  }
-  stolenMarkers();
-  })
-$("#bike-search").val(" ");
+    $.ajax({
+      type: 'GET',
+      url: 'https://sheltered-reaches-71424.herokuapp.com/api/v3/search?page=1&per_page=10&location=' + userSearch.lat + ',' + userSearch.lng + '&distance=10&stolenness=proximity',
+      dataType: 'json',
+      cache: false,
+    }).done(function (data) {
+      for (i = 0; i < data.bikes.length; i++) {
+        var place = data.bikes[i].stolen_location;
+        var time = data.bikes[i].date_stolen;
+        bikePlace.push(place);
+        bikeTime.push(time);
+      }
+      stolenMarkers();
+    })
+  });
+
+
+  $("#bike-search").val(" ");
 }
 
 //Function that returns latitude and longitude for items in bikePlace array
 
 function stolenMarkers() {
-  for (i=0; i < bikePlace.length; i++) {
+  var stolenBikeLocationRequests = [];
+  for (i = 0; i < bikePlace.length; i++) {
     if (!bikePlace[i]) {
 
     }
     else {
-    var location = bikePlace[i];
-    console.log(location);
-    $.ajax({
-      url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=AIzaSyBG8dPTg52rH0rTtwIR6a-Bl1DWiELwY1M",
-      method: 'GET',
-    }).done(function(response){
-      var stolenLatLng = {
-        lat: response.results[0].geometry.location.lat,
-        lng: response.results[0].geometry.location.lng
-      }
-      stolenCoords.push(stolenLatLng);
-    });
+      var location = bikePlace[i];
+      console.log(location);
+      var stolenBikeLocation = $.ajax({
+        url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=AIzaSyBG8dPTg52rH0rTtwIR6a-Bl1DWiELwY1M",
+        method: 'GET',
+      }).done(function (response) {
+        var stolenLatLng = {
+          lat: response.results[0].geometry.location.lat,
+          lng: response.results[0].geometry.location.lng
+        }
+
+
+        stolenCoords.push(stolenLatLng);
+      });
+
+      stolenBikeLocationRequests.push(stolenBikeLocation);
+    }
   }
-  }
+
+  Promise.all(stolenBikeLocationRequests)
+    .then(function() {
+      reInitMap();
+    })
   console.log(stolenCoords);
 }
 
 // Function that moves the map's centered point
 function reInitMap() {
-var searchArea = userSearch;
-var map = new google.maps.Map(document.querySelector(".search-field"), {
-  zoom: 18,
-  center: searchArea
-});
-for (i =0; i < stolenCoords.length; i++) {
-var marker = new google.maps.Marker({
-  position: stolenCoords[i],
-  map: map
-});
-}
+  var searchArea = userSearch;
+  var map = new google.maps.Map(document.querySelector(".search-field"), {
+    zoom: 10,
+    center: searchArea
+  });
+  for (i = 0; i < stolenCoords.length; i++) {
+    var marker = new google.maps.Marker({
+      position: stolenCoords[i],
+      map: map
+    });
+  }
 }
 
 // Add Bike to Firebase Function
-$("#addBike").on("click", function(event){
+$("#addBike").on("click", function (event) {
   event.preventDefault();
 
   var serial = $("#serial").val().trim();
@@ -223,32 +235,32 @@ $("#addBike").on("click", function(event){
   var frame = $("#frame").val().trim();
   var imgurl = $("#image").val().trim();
 
-database.ref().push({
-  serial : serial,
-  manufacturer: manufacturer,
-  color: color,
-  email: email,
-  frame: frame,
-  imgurl: imgurl,
-  stolenness: "non"
-}) 
+  database.ref().push({
+    serial: serial,
+    manufacturer: manufacturer,
+    color: color,
+    email: email,
+    frame: frame,
+    imgurl: imgurl,
+    stolenness: "non"
+  })
 
-$("#serial").val(" ");
-$("#manufacturer").val(" ");
-$("#color").val(" ");
-$("#email").val(" ");
-$("#frame").val(" ");
-$("#image").val(" ");
-$(".addmsg").text("Bike added!");
+  $("#serial").val(" ");
+  $("#manufacturer").val(" ");
+  $("#color").val(" ");
+  $("#email").val(" ");
+  $("#frame").val(" ");
+  $("#image").val(" ");
+  $(".addmsg").text("Bike added!");
 })
 
 $("#search").on("click", locationSearch);
-$("#bike-cross").on("click", function(){
+$("#bike-cross").on("click", function () {
   $(".addBike").css("visibility", "visible");
 })
-$("#addClose").on("click", function(event){
-event.preventDefault();
-$(".addBike").css("visibility", "hidden");
+$("#addClose").on("click", function (event) {
+  event.preventDefault();
+  $(".addBike").css("visibility", "hidden");
 
 })
 
