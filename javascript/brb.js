@@ -89,8 +89,8 @@ function handleAuthClick() {
     $('.image-area').css('display', 'none');
     $('.user-name').css('display', 'none');
     $('.user-email').css('display', 'none');
-//     $('.bike-add').css('display', 'none');
-// $('.stolen-bike-add').css('display', 'none');
+     $('.bike-add').css('display', 'none');
+ $('.stolen-bike-add').css('display', 'none');
 
     GoogleAuth.signOut();
   } else {
