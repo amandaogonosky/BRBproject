@@ -137,7 +137,7 @@ function updateSigninStatus(isSignedIn) {
 function initMap() {
   var uluru = { lat: 42.0166702, lng: 23.1000004 };
   var map = new google.maps.Map(document.querySelector(".search-field"), {
-    zoom: 2,
+    zoom: 4,
     center: uluru
   });
   var marker = new google.maps.Marker({
@@ -249,8 +249,7 @@ $("#addBike").on("click", function (event) {
 
 var usersRef = database.ref().child("users");
 
-  usersRef.child(userId2).set({
-    [userId2]:{
+  usersRef.child(userId2).set({ 
     serial: serial,
     manufacturer: manufacturer,
     color: color,
@@ -258,7 +257,6 @@ var usersRef = database.ref().child("users");
     frame: frame,
     imgurl: imgurl,
     stolenness: "non"
-  }
   });
 }
 
