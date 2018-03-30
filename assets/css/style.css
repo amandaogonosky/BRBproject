@@ -54,7 +54,7 @@ height: 100%;
 }
 #bike-cross{
 margin-top: 20px;
-
+}
 
 /* h1{   
 color: antiquewhite;
@@ -62,7 +62,8 @@ font-family: 'Chicle', cursive;
 } */
 
 
-#search{ transition: all 1.3s;
+#search { 
+  transition: all 1.3s;
     background: #4cd800;
 }
 #bike-search:hover{
@@ -72,7 +73,6 @@ font-family: 'Chicle', cursive;
  /* transform: scale(.9); */
 }
 .search-field{
-
     float: inherit;
     margin: 12px;
     padding: 11px;
@@ -177,7 +177,7 @@ margin-right: 60%;
 /*To style your map, combine the selectors and stylers into a style array, and pass it to the default map's MapOptions object, or to the StyledMapType constructor. The array takes the following form:
 /* https://developers.google.com/maps/documentation/javascript/styling
 /*var stylesArray = [
-  {
+  /* {
     featureType: '',
     elementType: '',
     stylers: [
@@ -190,4 +190,4 @@ margin-right: 60%;
     featureType: '',
     // Add the stylers you need.
   }
-]
+] */
