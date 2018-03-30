@@ -11,6 +11,7 @@ padding-bottom: 5px;
 padding-top: 10px;
 }
 
+<<<<<<< HEAD
 #top-label{
 color:white;
 font-family: 'Chicle', cursive;
@@ -54,8 +55,9 @@ height: 100%;
 }
 #bike-cross{
 margin-top: 20px;
+=======
+>>>>>>> d6b6ff9fbdf912dab1a15a84ef041cb19f074af4
 
-}
 
 /* h1{   
 color: antiquewhite;
@@ -110,6 +112,18 @@ margin-bottom: 20px;
   box-shadow: 5px 8px 10px darkgrey;
   padding: 0 15px 24px 0;
   visibility: hidden;
+}
+
+.stolenBike {
+
+  position: fixed;
+  top: 10%;
+  left: 30%;
+  background-color: white;
+  box-shadow: 5px 8px 10px darkgrey;
+  padding: 0 15px 24px 0;
+  visibility: hidden;
+
 }
 
 .add {
