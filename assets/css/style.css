@@ -27,9 +27,16 @@ content: "";
 display: inline-block;
 width:100%;
 } */
+
+#first-col{
+background: rgba(0,0,0,0.5);
+height: 600px;
+margin-top:10px;
+
+}
 #log-in{
   color: white;
-  font-family:'Chicle', cursive;
+  font-family:'Indie + Flower';
   font-size: 35px;
   height: 100%;
   padding-left: 0px;
@@ -37,7 +44,7 @@ width:100%;
 }
 #sign-in-or-out-button{
 padding-left:0px;
-
+margin-bottom: 20px;
 }
 /* #recent{
 color: white;
@@ -49,10 +56,11 @@ height: 100%;
 
 #search-bikes{
   color: white;
-  font-family: 'Chicle', cursive;
+  font-family: 'Indie + Flower';
   font-size: 40px;
   height: 100%;
 
+background: rgba(0,0,0,0.5);
 }
 /* #bike-cross{
 margin-top: 20px;
@@ -62,7 +70,6 @@ margin-top: 20px;
 color: antiquewhite;
 font-family: 'Chicle', cursive;
 } */
-
 
 #search { 
   transition: all 1.3s;
@@ -91,6 +98,7 @@ position: absolute;
 .row {
   margin-right: -131px;
   margin-left: -100px;
+  padding-top: 0px;
 }
 #middle{
 text-align: center;
@@ -114,7 +122,6 @@ margin-bottom: 20px;
 }
 
 .stolenBike {
-
   position: fixed;
   top: 10%;
   left: 30%;
@@ -162,6 +169,7 @@ margin-right: 60%;
   background-color: red;
   color: white;
   text-align: center;
+  margin-top:20px;
 }
 
 .red {
