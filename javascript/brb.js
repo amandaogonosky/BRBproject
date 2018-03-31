@@ -343,7 +343,6 @@ $(".stolen-bike-add").on("click", function () {
   $(".stolenBike").css("visibility", "visible");
   database.ref().on("value", function (childSnapshot) {
 
-<<<<<<< HEAD
     for (let i = 0; i < childSnapshot.length; i++) {
 
 
@@ -355,10 +354,6 @@ $(".stolen-bike-add").on("click", function () {
       var p = $("<img>").src(image).class("stolen-bike-pictures").attr("data", bikeID);
 
       $("bikeChoice").prepend(p);
-=======
-$("#addStolenBike").on("click", function(event){
-  event.preventDefault();
->>>>>>> 432d74bf2dac519463fe25c816e8ef627901f1e7
 
     }
 
