@@ -151,6 +151,15 @@ label.add {
   top: 5%;
 }
 
+
+.user-name {
+color: white;
+}
+
+.user-email {
+color: white;
+}
+
 .autharea {
     margin-left: 20%;
     margin-right: auto;
