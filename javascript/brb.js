@@ -280,10 +280,6 @@ $("#addClose").on("click", function (event) {
 
 
 
-
-
-
-
 $("#addStolenBike").on("click", function(event){
   event.preventDefault();
 
