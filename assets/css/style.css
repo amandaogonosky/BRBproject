@@ -164,6 +164,10 @@ margin-right: 60%;
   text-align: center;
 }
 
+.red {
+  color: red;
+}
+
 /* need media queries at end of CSS */
 
 /* Small devices (tablets, 768px and up) */
