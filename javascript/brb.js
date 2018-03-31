@@ -27,6 +27,7 @@ var userSearch = {
 var bikePlace = [];
 var bikeTime = [];
 var stolenCoords = [];
+var StolenBikeChosen;
 
 
 // Google Auth variables
@@ -75,6 +76,65 @@ function initClient() {
       handleAuthClick();
     });
 
+
+
+
+
+
+
+    $('#addStolenBike').click(function () {
+      event.preventDefault();
+
+      if (!userId) {
+        $(".addmsg").text("You must sign in with Google");
+      }
+      else {
+        var userId2 = userId.trim();
+        var date = $("#date").val().trim();
+        var location = $("#location").val().trim();
+        var time = $("#time").val();
+        var comments = $("#comments").val().trim();
+        $("#date").val(" ");
+        $("#location").val(" ");
+        $("#comments").val(" ");
+
+
+
+
+        var usersRef = database.ref().child("users").child(userId2);
+
+        //goes to the database, grab the unique universal ID for the pushes and save 
+        //to a var that will be passed into the image class, and find the picture they put of the bike
+        //go into each object and create an image URL
+        // When th
+        usersRef.child(StolenBikeChosen).patch({
+          stolen: "stolen",
+          date: date,
+          location: location,
+          time: time,
+          comments: comments,
+        });
+      }
+
+
+      //   $(".addmsg").text("Bike added!");
+      // })
+
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
   });
 }
 
@@ -84,8 +144,8 @@ function handleAuthClick() {
     $('.image-area').css('display', 'none');
     $('.user-name').css('display', 'none');
     $('.user-email').css('display', 'none');
-     $('.bike-add').css('display', 'none');
- $('.stolen-bike-add').css('display', 'none');
+    $('.bike-add').css('display', 'none');
+    $('.stolen-bike-add').css('display', 'none');
 
     GoogleAuth.signOut();
   } else {
@@ -210,7 +270,7 @@ function stolenMarkers() {
   }
 
   Promise.all(stolenBikeLocationRequests)
-    .then(function() {
+    .then(function () {
       reInitMap();
     })
   console.log(stolenCoords);
@@ -239,25 +299,25 @@ $("#addBike").on("click", function (event) {
     $(".addmsg").text("You must sign in with Google");
   }
   else {
-  var userId2 = userId.trim();
-  var serial = $("#serial").val().trim();
-  var manufacturer = $("#manufacturer").val().trim();
-  var color = $("#color").val().trim();
-  var email = $("#email").val().trim();
-  var frame = $("#frame").val().trim();
-  var imgurl = $("#image").val().trim();
+    var userId2 = userId.trim();
+    var serial = $("#serial").val().trim();
+    var manufacturer = $("#manufacturer").val().trim();
+    var color = $("#color").val().trim();
+    var email = $("#email").val().trim();
+    var frame = $("#frame").val().trim();
+    var imgurl = $("#image").val().trim();
 
-var usersRef = database.ref().child("users");
+    var usersRef = database.ref().child("users");
 
-  usersRef.child(userId2).push({ 
-    serial: serial,
-    manufacturer: manufacturer,
-    color: color,
-    email: email,
-    frame: frame,
-    imgurl: imgurl,
-  });
-}
+    usersRef.child(userId2).push({
+      serial: serial,
+      manufacturer: manufacturer,
+      color: color,
+      email: email,
+      frame: frame,
+      imgurl: imgurl,
+    });
+  }
 
   $("#serial").val(" ");
   $("#manufacturer").val(" ");
@@ -279,49 +339,42 @@ $("#addClose").on("click", function (event) {
 })
 
 
-
-
-
-
-
-$("#addStolenBike").on("click", function(event){
-  event.preventDefault();
-
-  var comments = $("#comments").val().trim();
-  var locationStolen = $("#location").val().trim();
-  var timeStolen = $("#time").val().trim();
-  var dateStolen = $("#date").val().trim();
-
-
-// database.ref().push({
-//   serial : serial,
-//   manufacturer: manufacturer,
-//   color: color,
-//   email: email,
-//   frame: frame,
-// }) 
-
-$("#comments").val(" ");
-$("#location").val(" ");
-$("#time").val(" ");
-$("#date").val(" ");
-})
-
-
-$(".stolen-bike-add").on("click", function(){
+$(".stolen-bike-add").on("click", function () {
   $(".stolenBike").css("visibility", "visible");
-})
+  database.ref().on("value", function (childSnapshot) {
+
+    for (let i = 0; i < childSnapshot.length; i++) {
 
 
-$("#addStolenClose").on("click", function(event){
-event.preventDefault();
-$(".stolenBike").css("visibility", "hidden");
+      var image = childSnapshot.val().imgurl;
+      var bikeID = childSnapshot.val()
+      console.log(image);
+      console.log(bikeID);
 
-})
+      var p = $("<img>").src(image).class("stolen-bike-pictures").attr("data", bikeID);
 
-$("#addStolenBike").on("click", function(event){
-  event.preventDefault();
-  $(".stolenBike").css("visibility", "hidden");
-  
+      $("bikeChoice").prepend(p);
+
+    }
+
+    $('.stolen-bike-pictures').click(function () {
+
+      StolenBikeChosen = $(this).attr("data").val();
+
+    })
   })
-  
+
+
+
+  $("#addStolenClose").on("click", function (event) {
+    event.preventDefault();
+    $(".stolenBike").css("visibility", "hidden");
+
+  })
+
+  $("#addStolenBike").on("click", function (event) {
+    event.preventDefault();
+    $(".stolenBike").css("visibility", "hidden");
+
+  });
+});
