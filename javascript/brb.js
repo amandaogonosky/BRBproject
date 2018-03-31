@@ -341,7 +341,8 @@ $("#addClose").on("click", function (event) {
 
 $(".stolen-bike-add").on("click", function () {
   $(".stolenBike").css("visibility", "visible");
-  database.ref().on("value", function (childSnapshot) {
+  var usersRef = database.ref().child("users").child(userId);
+  usersRef.on("value", function (childSnapshot) {
 
     for (let i = 0; i < childSnapshot.length; i++) {
 
@@ -353,7 +354,7 @@ $(".stolen-bike-add").on("click", function () {
 
       var p = $("<img>").src(image).class("stolen-bike-pictures").attr("data", bikeID);
 
-      $("bikeChoice").prepend(p);
+      $(".bikeChoice").prepend(p);
 
     }
 
@@ -375,6 +376,7 @@ $(".stolen-bike-add").on("click", function () {
   $("#addStolenBike").on("click", function (event) {
     event.preventDefault();
     $(".stolenBike").css("visibility", "hidden");
+
 
   });
 });
