@@ -172,6 +172,10 @@ margin-right: 60%;
   margin-top:20px;
 }
 
+.red {
+  color: red;
+}
+
 /* need media queries at end of CSS */
 
 /* Small devices (tablets, 768px and up) */
