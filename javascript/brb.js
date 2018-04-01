@@ -282,11 +282,12 @@ $("#addClose").on("click", function (event) {
 
 // Report Bike Stolen Functions: let user choose which bike was stolen
 $("#bike-bandit").on("click", function () {
-  $(".stolenBike").css("visibility", "visible"); 
+  $(".stolenBike").css("visibility", "visible");
 
+  var userId2 = userId.toString();
   var usersRef = database.ref().child("users");
   var userIdRef = usersRef.child(userId);
-  userIdRef.on("value").then(function(childSnapshot) {
+  userIdRef.once("value").then(function(childSnapshot) {
     console.log(childSnapshot);
     for (let i = 0; i < childSnapshot.length; i++) {
 
