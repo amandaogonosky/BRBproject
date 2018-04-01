@@ -118,12 +118,12 @@ function setSigninStatus(isSignedIn) {
     $('.bike-add').css('display', 'inline');
     $('.stolen-bike-add').css('display', 'inline');
 
-    $('#sign-in-or-out-button').attr("src", "./assets/images/googleminus.png");
+    $('#sign-in-or-out-button').attr("src", "./assets/images/googleminus.png").css("width", "63%");
     $('#revoke-access-button').css('display', 'inline-block');
     // $('#auth-status').html('You are currently signed in and have granted ' +
     //     'access to this app.');
   } else {
-    $('#sign-in-or-out-button').attr("src", "./assets/images/googleplus.png").css("width", "63%");
+    $('#sign-in-or-out-button').attr("src", "./assets/images/googleplus.png");
     $('#revoke-access-button').css('display', 'none');
     // $('#auth-status').html('You have not authorized this app or you are ' +
     //     'signed out.');
@@ -286,7 +286,7 @@ $("#bike-bandit").on("click", function () {
 
   var usersRef = database.ref().child("users");
   var userIdRef = usersRef.child(userId);
-  userIdRef.on("value", function (childSnapshot) {
+  userIdRef.on("value").then(function(childSnapshot) {
     console.log(childSnapshot);
     for (let i = 0; i < childSnapshot.length; i++) {
 
