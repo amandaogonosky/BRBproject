@@ -7,7 +7,7 @@ background-size: cover;
 
 
 #title{
-background: rgba(0,0,0,0.5);
+background: rgba(0,0,0,0.7);
 padding-bottom: 5px;
 padding-top: 10px;
 }
@@ -25,14 +25,14 @@ font-size: 90px;
 }
 
 #first-col{
-background: rgba(0,0,0,0.5);
+background: rgba(0,0,0,0.7);
 height: 600px;
 margin-top:10px;
 
 }
 #log-in{
   color: white;
-  font-family:'Indie + Flower';
+  font-family: 'Oswald', sans-serif;
   font-size: 35px;
   height: 100%;
   padding-left: 0px;
@@ -45,12 +45,20 @@ margin-bottom: 20px;
 
 #search-bikes{
   color: white;
-  font-family: 'Indie + Flower';
+  font-family: 'Oswald', sans-serif;
   font-size: 40px;
   height: 100%;
-
-background: rgba(0,0,0,0.5);
+background: rgba(0,0,0,0.7);
 }
+
+#sign-in-or-out-button {
+  width: 180px;
+}
+
+#sign-in-or-out-button:hover {
+  border: 2px solid white;
+}
+
 
 #search { 
   transition: all 1.3s;
@@ -139,7 +147,6 @@ color: white;
     margin-right: auto;
     width: 33%;
 }
-
 
 .footer {
   position: fixed;
