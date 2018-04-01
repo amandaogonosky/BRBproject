@@ -87,6 +87,7 @@ function handleAuthClick() {
     $('.user-email').css('display', 'none');
     $('.bike-add').css('display', 'none');
     $('.stolen-bike-add').css('display', 'none');
+    $("#sign-in-or-out-button").attr("src", "./assets/images/googleminus.png");
 
     GoogleAuth.signOut();
   } else {
@@ -122,7 +123,7 @@ function setSigninStatus(isSignedIn) {
     // $('#auth-status').html('You are currently signed in and have granted ' +
     //     'access to this app.');
   } else {
-    $('#sign-in-or-out-button').html('Sign In/Authorize');
+    $('#sign-in-or-out-button').attr("src", "./assets/images/googleplus.png");
     $('#revoke-access-button').css('display', 'none');
     // $('#auth-status').html('You have not authorized this app or you are ' +
     //     'signed out.');
