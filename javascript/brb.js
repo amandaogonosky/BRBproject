@@ -87,7 +87,7 @@ function handleAuthClick() {
     $('.user-email').css('display', 'none');
     $('.bike-add').css('display', 'none');
     $('.stolen-bike-add').css('display', 'none');
-    $("#sign-in-or-out-button").attr("src", "./assets/images/googleminus.png");
+    $("#sign-in-or-out-button").attr("src", "./assets/images/googleplus.png");
 
     GoogleAuth.signOut();
   } else {
@@ -116,7 +116,7 @@ function setSigninStatus(isSignedIn) {
     $(".user-email").html('User Email: ' + userEmail);
     $(".image-area").html(userImageObject);
     $('.bike-add').css('display', 'inline');
-    $('.stolen-bike-add').css('display', 'inline');
+    $('.stolen-bike-add').css('display', 'inline').attr("src", "./assets/images/googleminus.png");
 
     $('#sign-in-or-out-button').html('Sign out');
     $('#revoke-access-button').css('display', 'inline-block');
