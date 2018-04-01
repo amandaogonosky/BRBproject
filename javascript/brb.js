@@ -285,7 +285,7 @@ $("#bike-bandit").on("click", function () {
   $(".stolenBike").css("visibility", "visible");
   var usersRef = database.ref().child("users").child(userId);
   usersRef.on("value", function (childSnapshot) {
-    console.log("bike report function testing");
+    console.log(childSnapshot);
     for (let i = 0; i < childSnapshot.length; i++) {
 
 
