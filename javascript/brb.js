@@ -288,7 +288,7 @@ $("#bike-bandit").on("click", function () {
   var usersRef = database.ref("/users");
   var userIdRef = usersRef.child(userId);
   usersRef.once("value").then(function(childSnapshot) {
-    console.log(childSnapshot);
+    console.log(childSnapshot.child().key);
     for (let i = 0; i < childSnapshot.length; i++) {
 
 
