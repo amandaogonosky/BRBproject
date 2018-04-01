@@ -20,8 +20,6 @@ font-size: 90px;
  text-align: center;
  letter-spacing: 10px;
  padding: 28px;
- 
- 
 }
 
 #first-col{
@@ -38,9 +36,15 @@ margin-top:10px;
   padding-left: 0px;
   padding-bottom: 15px;
 }
+
 #sign-in-or-out-button{
 padding-left:0px;
 margin-bottom: 20px;
+width: 103%;
+}
+
+.bike-add {
+  display: inline-block;
 }
 
 #search-bikes{
@@ -49,10 +53,6 @@ margin-bottom: 20px;
   font-size: 40px;
   height: 100%;
 background: rgba(0,0,0,0.7);
-}
-
-#sign-in-or-out-button {
-  width: 180px;
 }
 
 #sign-in-or-out-button:hover {
