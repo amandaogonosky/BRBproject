@@ -87,7 +87,7 @@ function handleAuthClick() {
     $('.user-email').css('display', 'none');
     $('.bike-add').css('display', 'none');
     $('.stolen-bike-add').css('display', 'none');
-    $("#sign-in-or-out-button").attr("src", "./assets/images/googleminus.png");
+    $("#sign-in-or-out-button").attr("src", "./assets/images/googleplus.png");
 
     GoogleAuth.signOut();
   } else {
@@ -116,7 +116,7 @@ function setSigninStatus(isSignedIn) {
     $(".user-email").html('User Email: ' + userEmail);
     $(".image-area").html(userImageObject);
     $('.bike-add').css('display', 'inline');
-    $('.stolen-bike-add').css('display', 'inline');
+    $('.stolen-bike-add').css('display', 'inline').attr("src", "./assets/images/googleminus.png");
 
     $('#sign-in-or-out-button').html('Sign out');
     $('#revoke-access-button').css('display', 'inline-block');
@@ -283,7 +283,8 @@ $("#addClose").on("click", function (event) {
 // Report Bike Stolen Functions: let user choose which bike was stolen
 $("#bike-bandit").on("click", function () {
   $(".stolenBike").css("visibility", "visible");
-  var usersRef = database.ref().child("users").child(userId);
+  var userBikes = database.ref().child("users").child(userId).val(); 
+  var usersRef = database.ref().child("users").child(userId).child(userBikes);
   usersRef.on("value", function (childSnapshot) {
     console.log(childSnapshot);
     for (let i = 0; i < childSnapshot.length; i++) {
