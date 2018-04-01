@@ -76,65 +76,6 @@ function initClient() {
       handleAuthClick();
     });
 
-
-
-
-
-
-
-    $('#addStolenBike').click(function () {
-      event.preventDefault();
-
-      if (!userId) {
-        $(".addmsg").text("You must sign in with Google");
-      }
-      else {
-        var userId2 = userId.trim();
-        var date = $("#date").val().trim();
-        var location = $("#location").val().trim();
-        var time = $("#time").val();
-        var comments = $("#comments").val().trim();
-        $("#date").val(" ");
-        $("#location").val(" ");
-        $("#comments").val(" ");
-
-
-
-
-        var usersRef = database.ref().child("users").child(userId2);
-
-        //goes to the database, grab the unique universal ID for the pushes and save 
-        //to a var that will be passed into the image class, and find the picture they put of the bike
-        //go into each object and create an image URL
-        // When th
-        usersRef.child(StolenBikeChosen).patch({
-          stolen: "stolen",
-          date: date,
-          location: location,
-          time: time,
-          comments: comments,
-        });
-      }
-
-
-      //   $(".addmsg").text("Bike added!");
-      // })
-
-
-
-    });
-
-
-
-
-
-
-
-
-
-
-
-
   });
 }
 
@@ -338,7 +279,7 @@ $("#addClose").on("click", function (event) {
 
 })
 
-
+// Report Bike Stolen Functions: let user choose which bike was stolen
 $(".stolen-bike-add").on("click", function () {
   $(".stolenBike").css("visibility", "visible");
   var usersRef = database.ref().child("users").child(userId);
@@ -365,6 +306,40 @@ $(".stolen-bike-add").on("click", function () {
     })
   })
 
+// Patch stolen status to database
+  $('#addStolenBike').click(function () {
+    event.preventDefault();
+
+    if (!userId) {
+      $(".addmsg").text("You must sign in with Google");
+    }
+    else {
+      var userId2 = userId.trim();
+      var date = $("#date").val().trim();
+      var location = $("#location").val().trim();
+      var time = $("#time").val();
+      var comments = $("#comments").val().trim();
+      $("#date").val(" ");
+      $("#location").val(" ");
+      $("#comments").val(" ");
+      var usersRef = database.ref().child("users").child(userId2);
+
+      //goes to the database, grab the unique universal ID for the pushes and save 
+      //to a var that will be passed into the image class, and find the picture they put of the bike
+      //go into each object and create an image URL
+      // When th
+      usersRef.child(StolenBikeChosen).patch({
+        stolen: "stolen",
+        date: date,
+        location: location,
+        time: time,
+        comments: comments,
+      });
+    }
+      $(".addmsg").text("Bike added!");
+    })
+  });
+
 
 
   $("#addStolenClose").on("click", function (event) {
@@ -379,4 +354,4 @@ $(".stolen-bike-add").on("click", function () {
 
 
   });
-});
+
