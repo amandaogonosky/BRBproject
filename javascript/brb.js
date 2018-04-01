@@ -116,9 +116,9 @@ function setSigninStatus(isSignedIn) {
     $(".user-email").html('User Email: ' + userEmail);
     $(".image-area").html(userImageObject);
     $('.bike-add').css('display', 'inline');
-    $('.stolen-bike-add').css('display', 'inline').attr("src", "./assets/images/googleminus.png");
+    $('.stolen-bike-add').css('display', 'inline');
 
-    $('#sign-in-or-out-button').html('Sign out');
+    $('#sign-in-or-out-button').attr("src", "./assets/images/googleminus.png");
     $('#revoke-access-button').css('display', 'inline-block');
     // $('#auth-status').html('You are currently signed in and have granted ' +
     //     'access to this app.');
