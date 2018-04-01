@@ -344,7 +344,7 @@ $("#bike-bandit").on("click", function () {
     }
       $(".addmsg").text("Bike added!");
     })
-  });
+
 
 
 
