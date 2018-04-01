@@ -87,7 +87,7 @@ function handleAuthClick() {
     $('.user-email').css('display', 'none');
     $('.bike-add').css('display', 'none');
     $('.stolen-bike-add').css('display', 'none');
-    $("#sign-in-or-out-button").attr("src", "./assets/images/googleplus.png");
+    $("#sign-in-or-out-button").attr("src", "./assets/images/googleplus.png").css("width", "103%");
 
     GoogleAuth.signOut();
   } else {
@@ -123,7 +123,7 @@ function setSigninStatus(isSignedIn) {
     // $('#auth-status').html('You are currently signed in and have granted ' +
     //     'access to this app.');
   } else {
-    $('#sign-in-or-out-button').attr("src", "./assets/images/googleplus.png");
+    $('#sign-in-or-out-button').attr("src", "./assets/images/googleplus.png").css("width", "63%");
     $('#revoke-access-button').css('display', 'none');
     // $('#auth-status').html('You have not authorized this app or you are ' +
     //     'signed out.');
@@ -285,7 +285,8 @@ $("#bike-bandit").on("click", function () {
   $(".stolenBike").css("visibility", "visible"); 
 
   var usersRef = database.ref().child("users");
-  usersRef.child(userId).on("value", function (childSnapshot) {
+  var userIdRef = usersRef.child(userId);
+  userIdRef.on("value", function (childSnapshot) {
     console.log(childSnapshot);
     for (let i = 0; i < childSnapshot.length; i++) {
 
