@@ -285,7 +285,7 @@ $("#bike-bandit").on("click", function () {
   $(".stolenBike").css("visibility", "visible");
 
   var userId2 = userId.toString();
-  var usersRef = database.ref().child("users");
+  var usersRef = database.ref("/users");
   var userIdRef = usersRef.child(userId);
   usersRef.once("value").then(function(childSnapshot) {
     console.log(childSnapshot);
@@ -302,12 +302,15 @@ $("#bike-bandit").on("click", function () {
       $(".bikeChoice").prepend(p);
 
     }
-    $('.stolen-bike-pictures').click(function () {
+  }) , function(errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  }
+  $('.stolen-bike-pictures').click(function () {
 
-      StolenBikeChosen = $(this).attr("data").val();
+    StolenBikeChosen = $(this).attr("data").val();
 
-    })
   })
+});
 
 // Patch stolen status to database
   $('#addStolenBike').click(function () {
