@@ -283,9 +283,8 @@ $("#addClose").on("click", function (event) {
 $("#bike-bandit").on("click", function () {
   $(".stolenBike").css("visibility", "visible");
   var usersRef = database.ref().child("users").child(userId);
-  console.log("bike report function testing");
   usersRef.on("value", function (childSnapshot) {
-
+    console.log("bike report function testing");
     for (let i = 0; i < childSnapshot.length; i++) {
 
 
@@ -299,7 +298,6 @@ $("#bike-bandit").on("click", function () {
       $(".bikeChoice").prepend(p);
 
     }
-
     $('.stolen-bike-pictures').click(function () {
 
       StolenBikeChosen = $(this).attr("data").val();
