@@ -255,10 +255,10 @@ $("#addBike").on("click", function (event) {
       imgurl: imgurl,
       stolenness: {
         stolen: "not",
-        date: date,
-        location: location,
-        time: time,
-        comments: comments,
+        date: "",
+        location: "",
+        time: "",
+        comments: "",
       }
     });
   }
