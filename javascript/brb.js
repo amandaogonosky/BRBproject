@@ -296,14 +296,14 @@ $("#bike-bandit").on("click", function () {
       var p = $("<img>").attr("src", image).class("stolen-bike-pictures").attr("data", bikeID);
       $(".bikeChoice").prepend(p);
     })
-    
-   }, function(errorObject) {
+   }), function(errorObject) {
     console.log("The read failed: " + errorObject.code);
   }
   $('.stolen-bike-pictures').click(function () {
     stolenBikeChosen = $(this).attr("data").val();
   })
-});
+})
+;
 
 // Patch stolen status to database
   $('#addStolenBike').click(function () {
