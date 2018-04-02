@@ -295,12 +295,12 @@ $("#bike-bandit").on("click", function () {
    }), function(errorObject) {
     console.log("The read failed: " + errorObject.code);
   }
-  $('.stolen-bike-pictures').on("click", function () {
-    stolenBikeChosen = $(this).attr("data").val();
-    console.log("stolen bike chosen id: " + stolenBikeChosen);
-  })
+});
+
+$(document).on("click", ".stolen-bike-pictures", function () {
+  stolenBikeChosen = $(this).attr("data").val();
+  console.log("stolen bike chosen id: " + stolenBikeChosen);
 })
-;
 
 // Patch stolen status to database
   $('#addStolenBike').click(function () {
