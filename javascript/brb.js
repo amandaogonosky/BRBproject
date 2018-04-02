@@ -298,7 +298,7 @@ $("#bike-bandit").on("click", function () {
 });
 
 $(document).on("click", ".stolen-bike-pictures", function () {
-  stolenBikeChosen = $(this).attr("data").val();
+  stolenBikeChosen = $(this).attr("data");
   console.log("stolen bike chosen id: " + stolenBikeChosen);
 })
 
