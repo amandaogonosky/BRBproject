@@ -23,7 +23,7 @@ font-size: 90px;
 
 #first-col{
 background: rgba(0,0,0,0.7);
-height: 503px;
+height: 532px;
 margin-top: 10px;
 margin-bottom: 50px;
 }
@@ -61,15 +61,10 @@ width: 103%;
 }
 
 
-#search { 
-  transition: all 1.3s;
-    background: #4cd800;
+#bike-search {
+  width: 300px;
 }
-#bike-search:hover{
-  padding-inline-end: 80mm;
-  backface-visibility: visible;
- fill: blue;
-}
+
 .search-field{
     float: inherit;
     margin: 12px;
@@ -83,15 +78,17 @@ width: 103%;
   margin-left: -100px;
   padding-top: 0px;
 }
-#middle{
-text-align: center;
-
-}
 
 .bike-input{
 margin-top: 20px;
 margin-bottom: 20px;
+}
 
+.search-card {
+  background-color: white;
+  margin-top: -1%;
+  padding-bottom: 20px;
+  padding-top: 8px;
 }
 
 .addBike {

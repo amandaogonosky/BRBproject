@@ -96,8 +96,6 @@ function handleAuthClick() {
   }
 }
 
-
-
 function setSigninStatus(isSignedIn) {
   var user = GoogleAuth.currentUser.get();
   var isAuthorized = user.hasGrantedScopes(SCOPE);
@@ -112,8 +110,8 @@ function setSigninStatus(isSignedIn) {
     $('.image-area').css('display', 'block');
     $('.user-name').css('display', 'block');
     $('.user-email').css('display', 'block');
-    $(".user-name").html('Username: ' + userName);
-    $(".user-email").html('User Email: ' + userEmail);
+    $(".user-name").html('Username: <br> ' + userName);
+    $(".user-email").html('User Email: <br> ' + userEmail);
     $(".image-area").html(userImageObject);
     $('.bike-add').css('display', 'inline');
     $('.stolen-bike-add').css('display', 'inline');
@@ -178,8 +176,6 @@ function locationSearch(event) {
       stolenMarkers();
     })
   });
-
-
   $("#bike-search").val(" ");
 }
 
@@ -210,7 +206,6 @@ function stolenMarkers() {
       stolenBikeLocationRequests.push(stolenBikeLocation);
     }
   }
-
   Promise.all(stolenBikeLocationRequests)
     .then(function () {
       reInitMap();
@@ -300,6 +295,7 @@ $("#bike-bandit").on("click", function () {
   }
   $('.stolen-bike-pictures').click(function () {
     stolenBikeChosen = $(this).attr("data").val();
+    console.log("stolen bike chosen id: " + stolenBikeChosen);
   })
 })
 ;
@@ -320,7 +316,7 @@ $("#bike-bandit").on("click", function () {
       $("#date").val(" ");
       $("#location").val(" ");
       $("#comments").val(" ");
-      var usersRef = database.ref().child("users").child(userId2);
+      var usersRef = firebase.database().ref("/users/" + userId2 + "/");
 
       //goes to the database, grab the unique universal ID for the pushes and save 
       //to a var that will be passed into the image class, and find the picture they put of the bike
