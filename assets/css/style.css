@@ -24,10 +24,11 @@ font-size: 90px;
 
 #first-col{
 background: rgba(0,0,0,0.7);
-height: 600px;
-margin-top:10px;
-
+height: 511px;
+margin-top: 10px;
+margin-bottom: 80px;
 }
+
 #log-in{
   color: white;
   font-family: 'Oswald', sans-serif;

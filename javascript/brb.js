@@ -27,7 +27,7 @@ var userSearch = {
 var bikePlace = [];
 var bikeTime = [];
 var stolenCoords = [];
-var StolenBikeChosen;
+var stolenBikeChosen;
 
 
 // Google Auth variables
@@ -286,28 +286,22 @@ $("#bike-bandit").on("click", function () {
 
   var userId2 = userId.toString();
   var usersRef = firebase.database().ref("/users/" + userId2 + "/");
-  usersRef.once("value").then(function(childSnapshot) {
+  usersRef.once("value").then(function(snapshot) {
     console.log(childSnapshot.key);
-    for (let i = 0; i < childSnapshot.length; i++) {
-
-
+    snapshot.forEach(function(childSnapshot) {
       var image = childSnapshot.val().imgurl;
-      var bikeID = childSnapshot.val()
+      var bikeID = childSnapshot.key;
       console.log(image);
       console.log(bikeID);
-
-      var p = $("<img>").src(image).class("stolen-bike-pictures").attr("data", bikeID);
-
+      var p = $("<img>").attr("src", image).class("stolen-bike-pictures").attr("data", bikeID);
       $(".bikeChoice").prepend(p);
-
-    }
-  }) , function(errorObject) {
+    })
+    
+   }, function(errorObject) {
     console.log("The read failed: " + errorObject.code);
   }
   $('.stolen-bike-pictures').click(function () {
-
-    StolenBikeChosen = $(this).attr("data").val();
-
+    stolenBikeChosen = $(this).attr("data").val();
   })
 });
 
@@ -333,7 +327,7 @@ $("#bike-bandit").on("click", function () {
       //to a var that will be passed into the image class, and find the picture they put of the bike
       //go into each object and create an image URL
       // When th
-      usersRef.child(StolenBikeChosen).patch({
+      usersRef.child(stolenBikeChosen).patch({
         stolen: "stolen",
         date: date,
         location: location,
