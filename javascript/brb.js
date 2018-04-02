@@ -287,13 +287,15 @@ $("#bike-bandit").on("click", function () {
       var bikeID = childSnapshot.key;
       console.log(image);
       console.log(bikeID);
+      var h2 = $("<h2>").text("Your Bikes");
       var p = $("<img>").attr("src", image).addClass("stolen-bike-pictures").attr("data", bikeID);
-      $(".bikeChoice").prepend(p);
+      $(".bikeChoice").prepend(p)
+      .prepend(h2);
     })
    }), function(errorObject) {
     console.log("The read failed: " + errorObject.code);
   }
-  $('.stolen-bike-pictures').click(function () {
+  $('.stolen-bike-pictures').on("click", function () {
     stolenBikeChosen = $(this).attr("data").val();
     console.log("stolen bike chosen id: " + stolenBikeChosen);
   })
