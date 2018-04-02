@@ -253,6 +253,13 @@ $("#addBike").on("click", function (event) {
       email: email,
       frame: frame,
       imgurl: imgurl,
+      stolenness: {
+        stolen: "not",
+        date: date,
+        location: location,
+        time: time,
+        comments: comments,
+      }
     });
   }
 
@@ -324,7 +331,7 @@ $(document).on("click", ".stolen-bike-pictures", function () {
       //to a var that will be passed into the image class, and find the picture they put of the bike
       //go into each object and create an image URL
       // When th
-      usersRef.child(stolenBikeChosen).patch({
+      usersRef.child(stolenBikeChosen + "/location/").update({
         stolen: "stolen",
         date: date,
         location: location,
