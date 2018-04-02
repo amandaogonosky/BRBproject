@@ -285,8 +285,8 @@ $("#bike-bandit").on("click", function () {
   $(".stolenBike").css("visibility", "visible");
 
   var userId2 = userId.toString();
-  var usersRef = database.ref().child("users");
-  var userIdRef = usersRef.child(userId);
+  var usersRef = firebase.database().ref("/users");
+  var userIdRef = usersRef.child(userId2);
   usersRef.once("value").then(function(childSnapshot) {
     console.log(childSnapshot.child().key);
     for (let i = 0; i < childSnapshot.length; i++) {
