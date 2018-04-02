@@ -292,7 +292,7 @@ $("#bike-bandit").on("click", function () {
       var bikeID = childSnapshot.key;
       console.log(image);
       console.log(bikeID);
-      var p = $("<img>").attr("src", image).class("stolen-bike-pictures").attr("data", bikeID);
+      var p = $("<img>").attr("src", image).addClass("stolen-bike-pictures").attr("data", bikeID);
       $(".bikeChoice").prepend(p);
     })
    }), function(errorObject) {
