@@ -339,6 +339,7 @@ $("#bike-bandit").on("click", function () {
   $("#addStolenClose").on("click", function (event) {
     event.preventDefault();
     $(".stolenBike").css("visibility", "hidden");
+    $(".bikeChoice").clear();
 
   })
 
