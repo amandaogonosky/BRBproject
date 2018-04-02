@@ -287,7 +287,7 @@ $("#bike-bandit").on("click", function () {
       var bikeID = childSnapshot.key;
       console.log(image);
       console.log(bikeID);
-      var h2 = $("<h2>").text("Your Bikes");
+      var h2 = $("<h2 class='text-center'>").text("Your Bikes");
       var p = $("<img>").attr("src", image).addClass("stolen-bike-pictures").attr("data", bikeID);
       $(".bikeChoice").prepend(p)
       .prepend(h2);
