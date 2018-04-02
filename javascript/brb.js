@@ -287,7 +287,6 @@ $("#bike-bandit").on("click", function () {
   var userId2 = userId.toString();
   var usersRef = firebase.database().ref("/users/" + userId2 + "/");
   usersRef.once("value").then(function(snapshot) {
-    console.log(childSnapshot.key);
     snapshot.forEach(function(childSnapshot) {
       var image = childSnapshot.val().imgurl;
       var bikeID = childSnapshot.key;
