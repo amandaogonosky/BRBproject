@@ -115,6 +115,9 @@ margin-bottom: 20px;
   height: 80px;
   width: 80px;
 }
+.stolen-bike-pictures:hover {
+  border: 2px solid red;
+}
 
 .add {
   margin-bottom: 5px;
